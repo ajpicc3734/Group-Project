@@ -43,10 +43,10 @@
       }
       // Make sure the client is loaded and sign-in is complete before calling this method.
       function execute() {
-        return gapi.client.youtube.channels
+        return gapi.client.youtube.playlistItems
           .list({
-            part: ["snippet,contentDetails,statistics"],
-            id: ["PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth"],
+            part: ["snippet"],
+            playlistId: "PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth",
           })
           .then(
             function (response) {
@@ -69,10 +69,6 @@
       authorize and load
     </button>
     <button onclick="execute()">execute</button>
-
-    POST /apiv1.asmx HTTP/1.1 Host: api.chartlyrics.com Content-Type: text/xml;
-    charset=utf-8 Content-Length: length SOAPAction:
-    "http://api.chartlyrics.com/SearchLyricDirect"
 
     <script src="./js/script.js"></script>
   </body>
