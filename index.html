@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      /**
+       * Sample JavaScript code for youtube.channels.list
+       * See instructions for running APIs Explorer code samples locally:
+       * https://developers.google.com/explorer-help/code-samples#javascript
+       */
 
+      function authenticate() {
+        return gapi.auth2
+          .getAuthInstance()
+          .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
+          .then(
+            function () {
+              console.log("Sign-in successful");
+            },
+            function (err) {
+              console.error("Error signing in", err);
+            }
+          );
+      }
+      function loadClient() {
+        gapi.client.setApiKey("AIzaSyB8RFLS9l9HE39KW2b9vemhPQv78ROS4uQ");
+        return gapi.client
+          .load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+          .then(
+            function () {
+              console.log("GAPI client loaded for API");
+            },
+            function (err) {
+              console.error("Error loading GAPI client for API", err);
+            }
+          );
+      }
+      // Make sure the client is loaded and sign-in is complete before calling this method.
+      function execute() {
+        return gapi.client.youtube.channels
+          .list({
+            part: ["snippet,contentDetails,statistics"],
+            id: ["PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth"],
+          })
+          .then(
+            function (response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+            },
+            function (err) {
+              console.error("Execute error", err);
+            }
+          );
+      }
+      gapi.load("client:auth2", function () {
+        gapi.auth2.init({
+          client_id:
+            "948793858557-vugi5gpkgek612d4ejqv2enbu3f0p8u1.apps.googleusercontent.com",
+        });
+      });
+    </script>
+    <button onclick="authenticate().then(loadClient)">
+      authorize and load
+    </button>
+    <button onclick="execute()">execute</button>
+
+    POST /apiv1.asmx HTTP/1.1 Host: api.chartlyrics.com Content-Type: text/xml;
+    charset=utf-8 Content-Length: length SOAPAction:
+    "http://api.chartlyrics.com/SearchLyricDirect"
+
+    <?xml version="1.0" encoding="utf-8"?>
+    <soap:Envelope
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+      xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+    >
+      <soap:Body>
+        <SearchLyricDirect xmlns="http://api.chartlyrics.com/">
+          <artist>string</artist>
+          <song>string</song>
+        </SearchLyricDirect>
+      </soap:Body>
+    </soap:Envelope>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
