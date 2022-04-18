@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
   </head>
   <body>
@@ -19,19 +19,19 @@
        * https://developers.google.com/explorer-help/code-samples#javascript
        */
 
-      // function authenticate() {
-      //   return gapi.auth2
-      //     .getAuthInstance()
-      //     .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
-      //     .then(
-      //       function () {
-      //         console.log("Sign-in successful");
-      //       },
-      //       function (err) {
-      //         console.error("Error signing in", err);
-      //       }
-      //     );
-      // }
+      function authenticate() {
+        return gapi.auth2
+          .getAuthInstance()
+          .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
+          .then(
+            function () {
+              console.log("Sign-in successful");
+            },
+            function (err) {
+              console.error("Error signing in", err);
+            }
+          );
+      }
       function loadClient() {
         gapi.client.setApiKey("AIzaSyB8RFLS9l9HE39KW2b9vemhPQv78ROS4uQ");
         return gapi.client
