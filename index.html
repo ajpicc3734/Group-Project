@@ -9,29 +9,24 @@
   </head>
   <body>
     <h1>Discover New Music</h1>
+
     <div id="display-playlist"></div>
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
-      /**
-       * Sample JavaScript code for youtube.channels.list
-       * See instructions for running APIs Explorer code samples locally:
-       * https://developers.google.com/explorer-help/code-samples#javascript
-       */
-
-      // function authenticate() {
-      //   return gapi.auth2
-      //     .getAuthInstance()
-      //     .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
-      //     .then(
-      //       function () {
-      //         console.log("Sign-in successful");
-      //       },
-      //       function (err) {
-      //         console.error("Error signing in", err);
-      //       }
-      //     );
-      // }
+      function authenticate() {
+        return gapi.auth2
+          .getAuthInstance()
+          .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
+          .then(
+            function () {
+              console.log("Sign-in successful");
+            },
+            function (err) {
+              console.error("Error signing in", err);
+            }
+          );
+      }
       function loadClient() {
         gapi.client.setApiKey("AIzaSyB8RFLS9l9HE39KW2b9vemhPQv78ROS4uQ");
         return gapi.client
@@ -62,19 +57,86 @@
             function (response) {
               // Handle the results here (response.result has the parsed body).
               console.log("Response", response);
+
+              //description data
+
               const firstVideo = response.result.items[0].snippet.description;
               const secondVideo = response.result.items[1].snippet.description;
               const thirdVideo = response.result.items[2].snippet.description;
               const forthVideo = response.result.items[3].snippet.description;
-              const fithVideo = response.result.items[4].snippet.description;
-              console.log(secondVideo);
-              const output = `
-              <pre class="video-info"> ${firstVideo} </pre>
-              <pre class="video-info"> ${secondVideo} </pre>
-              <pre class="video-info"> ${thirdVideo} </pre>
-              <pre class="video-info"> ${forthVideo} </pre>
-              <pre class="video-info"> ${fithVideo} </pre>
+              const fifthVideo = response.result.items[4].snippet.description;
 
+              //title data
+
+              const firstVideoTitle = response.result.items[0].snippet.title;
+              const secondVideoTitle = response.result.items[1].snippet.title;
+              const thirdVideoTitle = response.result.items[2].snippet.title;
+              const forthVideoTitle = response.result.items[3].snippet.title;
+              const fifthVideoTitle = response.result.items[4].snippet.title;
+
+              //image data
+
+              const firstVideoImg =
+                response.result.items[0].snippet.thumbnails.default.url;
+              const secondVideoImg =
+                response.result.items[1].snippet.thumbnails.default.url;
+              const thirdVideoImg =
+                response.result.items[2].snippet.thumbnails.default.url;
+              const forthVideoImg =
+                response.result.items[3].snippet.thumbnails.default.url;
+              const fifthVideoImg =
+                response.result.items[4].snippet.thumbnails.default.url;
+
+              //link data
+              const firstVideoLink =
+                response.result.items[0].snippet.resourceId.videoId;
+              const secondVideoLink =
+                response.result.items[1].snippet.resourceId.videoId;
+              const thirdVideoLink =
+                response.result.items[2].snippet.resourceId.videoId;
+              const forthVideoLink =
+                response.result.items[3].snippet.resourceId.videoId;
+              const fifthVideoLink =
+                response.result.items[4].snippet.resourceId.videoId;
+
+              console.log(firstVideoLink);
+              const output = `
+              <div class="playlist-container" >
+                <h2>${firstVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${firstVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${firstVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info">  ${firstVideo} </pre>
+              </div>
+              <div class="playlist-container" >
+                <h2>${secondVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${secondVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${secondVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${secondVideo} </pre>
+              </div>
+              <div class="playlist-container" >
+                <h2>${thirdVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${thirdVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${thirdVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${thirdVideo} </pre>
+              </div>
+
+              <div class="playlist-container" >
+                <h2>${forthVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${forthVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${forthVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${forthVideo} </pre>
+              </div>
+              <div class="playlist-container" >
+                <h2>${fifthVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${fifthVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${fifthVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${fifthVideo} </pre>
+              </div>
               `;
               showPlaylist(output);
             },
@@ -91,9 +153,9 @@
       });
     </script>
     <button onclick="authenticate().then(loadClient)">
-      authorize and load
+      Press First & Close Pop-up
     </button>
-    <button onclick="execute()">Display New Music</button>
+    <button onclick="execute()">Press Second & Display New Music</button>
 
     <script src="./js/script.js"></script>
   </body>
