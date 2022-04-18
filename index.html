@@ -4,9 +4,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Document</title>
   </head>
   <body>
+    <h1>Discover New Music</h1>
+    <div id="display-playlist"></div>
+
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
       /**
@@ -15,19 +19,19 @@
        * https://developers.google.com/explorer-help/code-samples#javascript
        */
 
-      function authenticate() {
-        return gapi.auth2
-          .getAuthInstance()
-          .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
-          .then(
-            function () {
-              console.log("Sign-in successful");
-            },
-            function (err) {
-              console.error("Error signing in", err);
-            }
-          );
-      }
+      // function authenticate() {
+      //   return gapi.auth2
+      //     .getAuthInstance()
+      //     .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
+      //     .then(
+      //       function () {
+      //         console.log("Sign-in successful");
+      //       },
+      //       function (err) {
+      //         console.error("Error signing in", err);
+      //       }
+      //     );
+      // }
       function loadClient() {
         gapi.client.setApiKey("AIzaSyB8RFLS9l9HE39KW2b9vemhPQv78ROS4uQ");
         return gapi.client
@@ -41,17 +45,38 @@
             }
           );
       }
+      //display playsit info
+      function showPlaylist(output) {
+        const videoContainer = document.getElementById("display-playlist");
+        videoContainer.innerHTML = output;
+      }
       // Make sure the client is loaded and sign-in is complete before calling this method.
       function execute() {
         return gapi.client.youtube.playlistItems
           .list({
             part: ["snippet"],
+            maxResults: 10,
             playlistId: "PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth",
           })
           .then(
             function (response) {
               // Handle the results here (response.result has the parsed body).
               console.log("Response", response);
+              const firstVideo = response.result.items[0].snippet.description;
+              const secondVideo = response.result.items[1].snippet.description;
+              const thirdVideo = response.result.items[2].snippet.description;
+              const forthVideo = response.result.items[3].snippet.description;
+              const fithVideo = response.result.items[4].snippet.description;
+              console.log(secondVideo);
+              const output = `
+              <pre class="video-info"> ${firstVideo} </pre>
+              <pre class="video-info"> ${secondVideo} </pre>
+              <pre class="video-info"> ${thirdVideo} </pre>
+              <pre class="video-info"> ${forthVideo} </pre>
+              <pre class="video-info"> ${fithVideo} </pre>
+
+              `;
+              showPlaylist(output);
             },
             function (err) {
               console.error("Execute error", err);
@@ -68,7 +93,7 @@
     <button onclick="authenticate().then(loadClient)">
       authorize and load
     </button>
-    <button onclick="execute()">execute</button>
+    <button onclick="execute()">Display New Music</button>
 
     <script src="./js/script.js"></script>
   </body>
