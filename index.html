@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
     <!-- Compiled and minified CSS -->
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./css/style.css">
+
 
     <title>music player</title>
 
@@ -84,5 +87,233 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
 </body>
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+
+    <title>music player</title>
+  </head>
+  <body>
+    <h1>Discover New Music</h1>
+    <header>
+      <!-- Navbar goes here -->
+      <nav class="nav-wrapper">
+          <ul class="right">
+              <li>
+                  <a href="#search">Search</a>
+
+              </li>
+
+              <li>
+                  <a href="Video"> Video</a>
+
+              </li>
+
+              <li>
+                  <a href="Audio">Audio</a>
+              </li>
+          </ul>
+      </nav>
+
+      </header>
+<container>
+            <!-- Page Layout here -->
+            <div class="row">
+
+              <div id="search" class="col s12 m4 l3">
+                  <div class="search-wrapper">
+                  <input id="search" placeholder ="music search"><i class="material-icons prefix">search</i>
+                  <div class="search-results"></div>
+  
+          </div>
+              </div>
+  
+              <div id="content" class="col s12 m8 l9">
+  
+  
+              <!--video player-->
+              <div id="Video" class="Video col s12">
+                  <div class="card-panel teal lighten-2">
+                  <h2 class="center-align"> video </h2>
+  
+          <div class="video-container">
+          <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+          </div>
+  
+  
+              </div>
+              <!--lyrics-->
+              <div id="Lyrics" class="Lyrics col s12">
+                   <div class="card-panel teal lighten-2">
+                  <h2 class="center-align">Lyrics</h2>
+              <div class="lyricContainer">
+            <p class="flow-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, iusto quibusdam? Voluptatibus voluptates laboriosam accusantium ducimus corrupti quia perferendis rem labore officia, ullam earum, vitae dolorem illum ab? Vero, enim.</p>
+              </div>
+  
+              </div>
+              </div>
+          </div>
+  
+      </container>
+
+    <div id="display-playlist"></div>
+
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script>
+      function authenticate() {
+        return gapi.auth2
+          .getAuthInstance()
+          .signIn({ scope: "https://www.googleapis.com/auth/youtube.readonly" })
+          .then(
+            function () {
+              console.log("Sign-in successful");
+            },
+            function (err) {
+              console.error("Error signing in", err);
+            }
+          );
+      }
+      function loadClient() {
+        gapi.client.setApiKey("AIzaSyB8RFLS9l9HE39KW2b9vemhPQv78ROS4uQ");
+        return gapi.client
+          .load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+          .then(
+            function () {
+              console.log("GAPI client loaded for API");
+            },
+            function (err) {
+              console.error("Error loading GAPI client for API", err);
+            }
+          );
+      }
+      //display playsit info
+      function showPlaylist(output) {
+        const videoContainer = document.getElementById("display-playlist");
+        videoContainer.innerHTML = output;
+      }
+      // Make sure the client is loaded and sign-in is complete before calling this method.
+      function execute() {
+        return gapi.client.youtube.playlistItems
+          .list({
+            part: ["snippet"],
+            maxResults: 10,
+            playlistId: "PLFgquLnL59alW3xmYiWRaoz0oM3H17Lth",
+          })
+          .then(
+            function (response) {
+              // Handle the results here (response.result has the parsed body).
+              console.log("Response", response);
+
+              //description data
+
+              const firstVideo = response.result.items[0].snippet.description;
+              const secondVideo = response.result.items[1].snippet.description;
+              const thirdVideo = response.result.items[2].snippet.description;
+              const forthVideo = response.result.items[3].snippet.description;
+              const fifthVideo = response.result.items[4].snippet.description;
+
+              //title data
+
+              const firstVideoTitle = response.result.items[0].snippet.title;
+              const secondVideoTitle = response.result.items[1].snippet.title;
+              const thirdVideoTitle = response.result.items[2].snippet.title;
+              const forthVideoTitle = response.result.items[3].snippet.title;
+              const fifthVideoTitle = response.result.items[4].snippet.title;
+
+              //image data
+
+              const firstVideoImg =
+                response.result.items[0].snippet.thumbnails.default.url;
+              const secondVideoImg =
+                response.result.items[1].snippet.thumbnails.default.url;
+              const thirdVideoImg =
+                response.result.items[2].snippet.thumbnails.default.url;
+              const forthVideoImg =
+                response.result.items[3].snippet.thumbnails.default.url;
+              const fifthVideoImg =
+                response.result.items[4].snippet.thumbnails.default.url;
+
+              //link data
+              const firstVideoLink =
+                response.result.items[0].snippet.resourceId.videoId;
+              const secondVideoLink =
+                response.result.items[1].snippet.resourceId.videoId;
+              const thirdVideoLink =
+                response.result.items[2].snippet.resourceId.videoId;
+              const forthVideoLink =
+                response.result.items[3].snippet.resourceId.videoId;
+              const fifthVideoLink =
+                response.result.items[4].snippet.resourceId.videoId;
+
+              console.log(firstVideoLink);
+              const output = `
+              <div class="playlist-container" >
+                <h2>${firstVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${firstVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${firstVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info">  ${firstVideo} </pre>
+              </div>
+              <div class="playlist-container" >
+                <h2>${secondVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${secondVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${secondVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${secondVideo} </pre>
+              </div>
+              <div class="playlist-container" >
+                <h2>${thirdVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${thirdVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${thirdVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${thirdVideo} </pre>
+              </div>
+
+              <div class="playlist-container" >
+                <h2>${forthVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${forthVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${forthVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${forthVideo} </pre>
+              </div>
+              <div class="playlist-container" >
+                <h2>${fifthVideoTitle}</h2>
+                <div class="thumbnail"> <img src="${fifthVideoImg}" alt="broken"></div>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${fifthVideoLink}">Watch Video Here!</a></div>
+                <h3 class="desctiption">Description</h3>
+                <pre class="video-info"> ${fifthVideo} </pre>
+              </div>
+              `;
+              showPlaylist(output);
+            },
+            function (err) {
+              console.error("Execute error", err);
+            }
+          );
+      }
+      gapi.load("client:auth2", function () {
+        gapi.auth2.init({
+          client_id:
+            "948793858557-vugi5gpkgek612d4ejqv2enbu3f0p8u1.apps.googleusercontent.com",
+        });
+      });
+
+    </script>
+    <button onclick="authenticate().then(loadClient)">
+      Press First & Close Pop-up
+    </button>
+
+    <button onclick="execute()">Press Second & Display New Music</button>
+
+
+
+<button onClick="getLyrics()">Get Lyrics</button>
+
+
+
+    <script src="./js/script.js"></script>
+  </body>
 
 </html>
