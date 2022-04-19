@@ -20,64 +20,58 @@
     <title>music player</title>
   </head>
   <body>
-    <h1>Discover New Music</h1>
+    <h1 class="center-align"> <i class="large material-icons">music_note</i>music app.<i class="large material-icons">music_note</i></h1>
+
     <header>
       <!-- Navbar goes here -->
       <nav class="nav-wrapper">
           <ul class="right">
               <li>
                   <a href="#search">Search</a>
-
               </li>
 
               <li>
-                  <a href="Video"> Video</a>
-
+                  <a href="#Video"> Video</a>
               </li>
 
               <li>
-                  <a href="Audio">Audio</a>
+                  <a href="#Lyrics">Lyrics</a>
               </li>
           </ul>
       </nav>
 
       </header>
+
 <container>
             <!-- Page Layout here -->
             <div class="row">
-
-              <div id="search" class="col s12 m4 l3">
-                  <div class="search-wrapper">
-                  <input id="search" placeholder ="music search"><i class="material-icons prefix">search</i>
-                  <div class="search-results"></div>
-  
-          </div>
-              </div>
-  
-              <div id="content" class="col s12 m8 l9">
-  
+              <div id="content" class="col s12 m12 l7">
   
               <!--video player-->
               <div id="Video" class="Video col s12">
                   <div class="card-panel teal lighten-2">
-                  <h2 class="center-align"> video </h2>
-  
-          <div class="video-container">
-          <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-          </div>
-  
-  
+                    <h2 class="center-align"> video </h2>
+    
+                      <div class="video-container">
+                        <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+                      </div>
+                  </div>
               </div>
-              <!--lyrics-->
+              </div>
+              <div id="search" class="col s12 m12 l5">
+                <div class="search-wrapper">
+                   <input id="search" placeholder ="lyric search"><button><i class="material-icons prefix">search</i></button>
+                <div class="search-results"></div>
+                </div>
+                  <!--lyrics-->
               <div id="Lyrics" class="Lyrics col s12">
-                   <div class="card-panel teal lighten-2">
+                <div class="card-panel teal lighten-2">
                   <h2 class="center-align">Lyrics</h2>
-              <div class="lyricContainer">
-            <p class="flow-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, iusto quibusdam? Voluptatibus voluptates laboriosam accusantium ducimus corrupti quia perferendis rem labore officia, ullam earum, vitae dolorem illum ab? Vero, enim.</p>
-              </div>
-  
-              </div>
-              </div>
+                      <div class="lyricContainer">
+                        <p class="flow-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, iusto quibusdam? Voluptatibus voluptates laboriosam accusantium ducimus corrupti quia perferendis rem labore officia, ullam earum, vitae dolorem illum ab? Vero, enim.</p>
+                      </div>
+                </div>
+            </div>
           </div>
   
       </container>
@@ -194,7 +188,6 @@
                 <h3 class="desctiption">Description</h3>
                 <pre class="video-info"> ${thirdVideo} </pre>
               </div>
-
               <div class="playlist-container" >
                 <h2>${forthVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${forthVideoImg}" alt="broken"></div>
