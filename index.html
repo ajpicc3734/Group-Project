@@ -224,29 +224,6 @@
         });
       });
 
-      export default function Home() {
-  const getLyrics = async (artist, song) => {
-    const res = await fetch("https://api.lyrics.ovh/v1/${artist}/${song}");
-    const data = await res.json();
-    return data;
-  };
-  return (
-    <div>
-      <button onCLick={() => getLyrics(artist, song)}>test</button>
-      
-    </div>
-  );
-}
-
-const getEverything = () => {
-  // calls youtube
-  const youtubeData = null;
-
-  youtubeData.songs.forEach((song) => {
-    const lyrics = getLyrics(song.artist, song.title);
-    document.getElementById("#lyrics").innerHTML = lyrics;
-  });
-};
     </script>
     <button onclick="authenticate().then(loadClient)">
       Press First & Close Pop-up
