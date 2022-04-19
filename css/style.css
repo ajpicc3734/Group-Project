@@ -1,19 +1,21 @@
-#display-playlist{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
 
-.playlist-container {
-    border: 1px solid black;
-    width: 400px;
-    margin: 3px
+.Lyrics {
+    border: black 3px solid;
+    
+    background-color: black;
 
 }
-.video-info {
-    display: flex;
-    /* border: 1px solid black; */
-    width: 400px;
-    height: 200px;
-    overflow: auto;
+.search{ 
+    border: red 3px solid;
+
 }
+.Video {
+    border: black 3px solid;
+   
+    background-color: black;
+
+}
+.nav-wrapper {
+    background-color: teal;
+}
+
