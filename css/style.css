@@ -17,3 +17,23 @@
     height: 200px;
     overflow: auto;
 }
+
+.Lyrics {
+    border: black 3px solid;
+    
+    background-color: black;
+
+}
+.search{ 
+    border: red 3px solid;
+
+}
+.Video {
+    border: black 3px solid;
+   
+    background-color: black;
+
+}
+.nav-wrapper {
+    background-color: teal;
+}
