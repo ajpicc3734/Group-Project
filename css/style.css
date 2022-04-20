@@ -11,15 +11,13 @@ h1{
     background-color: black;
 
 }
-.search{ 
-    border: red 3px solid;
 
-}
 .Video {
-    border: black 3px solid;
-   
+    /* border: black 3px solid; */
+
     background-color: black;
     
+
 
 }
 .video-info {
@@ -32,6 +30,20 @@ h1{
 .nav-wrapper {
     background-color: teal;
 }
+nav ul li a{
+    font-size: large;  
+    font: black;
+}
+nav ul li a:hover{
+    font-size:x-large;
+    text-decoration: underline black 3px;
+    font: black;
+}
+
+html {
+    background-color: black;
+}
+
 
 nav ul li a:hover{
     text-decoration: underline black 3px;
