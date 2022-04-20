@@ -14,8 +14,10 @@ h1{
 
 .Video {
     /* border: black 3px solid; */
-   
-    /* background-color: black; */
+
+    background-color: black;
+    
+
 
 }
 .video-info {
@@ -47,19 +49,3 @@ nav ul li a:hover{
     text-decoration: underline black 3px;
 }
 
-.link a {
-    color: white;
-    font-size: 2em;
-}
-
-.thumbnail {
-    width: 200px;
-    height: 200px;
-}
-
-.thumbnail img {
-    width: 100%;
-    height: auto;
-   
-
-}
