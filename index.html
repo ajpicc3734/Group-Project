@@ -52,33 +52,33 @@
                   <div class="card-panel teal lighten-2">
                     <h2 class="center-align"> video </h2>
     
-                      
+                      <!--<div class="video-container">-->
                         <div id="display-playlist"></div>
-                      </div>
+                      <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe> -->
+                      <!--</div>-->
                   </div>
               </div>
               </div>
               <div id="search" class="col s12 m12 l5">
                 <div class="search-wrapper">
-                   
+                   <input id="search" placeholder ="lyric search"><button><i class="material-icons prefix">search</i></button>
+                <div class="search-results"></div>
                 </div>
                   <!--lyrics-->
               <div id="Lyrics" class="Lyrics col s12">
                 <div class="card-panel teal lighten-2">
                   <h2 class="center-align">Lyrics</h2>
                       <div class="lyric-container">
-                        <p id= "Lyric-search"></p>
-                      </div>
-                      
-                      <button id="getLyrics" type="button" onclick="getLyrics('Lizzo', 'About Damn Time' )">Get Lyrics</button>
-                      
+                        <p id ="Lyric-search"></p>
                 </div>
+                <button id="getLyrics" type="button" onclick="getLyrics('Lizzo', 'About Damn Time')">Get Lyrics</button>
             </div>
+            
           </div>
   
       </container>
 
-    
+    <!-- <div id="display-playlist"></div> -->
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
@@ -220,17 +220,18 @@
       });
 
     </script>
-
-    
     <button onclick="authenticate().then(loadClient)">
       Press First & Close Pop-up
     </button>
 
     <button onclick="execute()">Press Second & Display New Music</button>
 
-    
-  
-<script src="js/script.js"></script> 
 
+
+
+
+
+
+    <script src="./js/script.js"></script>
   </body>
 </html>
