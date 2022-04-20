@@ -4,14 +4,16 @@ const YoutubeClientId =
 
 export default function Home() {
   const getLyrics = async (artist, song) => {
-    const res = await fetch("https://api.lyrics.ovh/v1/${artist}/${song}");
+    const res = await fetch(`https://api.lyrics.ovh/v1/${artist}/${song}`);
     const data = await res.json();
     return data;
   };
+
   return (
-    <div>
-      <button onCLick={() => getLyrics(artist, song)}>test</button>
-    </div>
+    // <div>
+    //   <button onCLick={() =>}>test</button>
+    // </div>
+    getLyrics(artist, song)
   );
 }
 
@@ -24,3 +26,4 @@ const getEverything = () => {
     document.getElementById("#lyrics").innerHTML = lyrics;
   });
 };
+getEverything();

@@ -80,6 +80,8 @@
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
+            var songTitleArray = [];
+
       function authenticate() {
         return gapi.auth2
           .getAuthInstance()
@@ -140,6 +142,21 @@
               const forthVideoTitle = response.result.items[3].snippet.title;
               const fifthVideoTitle = response.result.items[4].snippet.title;
 
+              const songTitles = {
+                firstVideoTitle,
+                secondVideoTitle,
+                thirdVideoTitle,
+                forthVideoTitle,
+                fifthVideoTitle,
+              };
+              songTitleArray.push(songTitles);
+              localStorage.setItem(
+                "songTitleArray",
+                JSON.stringify(songTitleArray)
+              );
+              var getSongTitles = localStorage.getItem("songTitleArray");
+              console.log(getSongTitles);
+
               //image data
 
               const firstVideoImg =
@@ -167,7 +184,7 @@
 
               console.log(firstVideoLink);
               const output = `
-              <div class="playlist-container" >
+              <div class="playlist-container" >                
                 <h2>${firstVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${firstVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${firstVideoLink}">Watch Video Here!</a></div>
