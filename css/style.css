@@ -24,7 +24,7 @@ h1{
 .video-info {
     display: flex;
     /* border: 1px solid black; */
-    width: 400px;
+    /* width: 400px; */
     height: 200px;
     overflow: auto;
 }
@@ -36,3 +36,19 @@ nav ul li a:hover{
     text-decoration: underline black 3px;
 }
 
+.link a {
+    color: white;
+    font-size: 2em;
+}
+
+.thumbnail {
+    width: 200px;
+    height: 200px;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+   
+
+}
