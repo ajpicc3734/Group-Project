@@ -19,6 +19,7 @@ h1{
     border: black 3px solid;
    
     background-color: black;
+    
 
 }
 .video-info {
@@ -35,3 +36,4 @@ h1{
 nav ul li a:hover{
     text-decoration: underline black 3px;
 }
+
