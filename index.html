@@ -52,9 +52,10 @@
                   <div class="card-panel teal lighten-2">
                     <h2 class="center-align"> Video </h2>
     
-                      <div class="video-container">
-                        <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
-                      </div>
+                      <!--<div class="video-container">-->
+                        <div id="display-playlist"></div>
+                      <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe> -->
+                      <!--</div>-->
                   </div>
               </div>
               </div>
@@ -67,16 +68,17 @@
               <div id="Lyrics" class="Lyrics col s12">
                 <div class="card-panel teal lighten-2">
                   <h2 class="center-align">Lyrics</h2>
-                      <div class="lyricContainer">
-                        <p class="flow-text">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati, iusto quibusdam? Voluptatibus voluptates laboriosam accusantium ducimus corrupti quia perferendis rem labore officia, ullam earum, vitae dolorem illum ab? Vero, enim.</p>
-                      </div>
+                      <div class="lyric-container">
+                        <p id ="Lyric-search"></p>
                 </div>
+                <button id="getLyrics" type="button" onclick="getLyrics('Lizzo', 'About Damn Time')">Get Lyrics</button>
             </div>
+            
           </div>
   
       </container>
 
-    <div id="display-playlist"></div>
+    <!-- <div id="display-playlist"></div> -->
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
@@ -226,7 +228,7 @@
 
 
 
-<button onClick="getLyrics()">Get Lyrics</button>
+
 
 
 
