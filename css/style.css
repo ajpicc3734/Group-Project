@@ -21,7 +21,6 @@ h1{
 .video-info {
     display: flex;
     border: 3px solid black; 
-    width: 400px;
     height: 200px;
     overflow: scroll;
     margin: auto;
@@ -63,10 +62,15 @@ text-align: center;
 }
 
 .thumbnail {
-    display: flex;
+   display: flex;
    justify-content: center;
    align-items: center;
-
+   
+}
+.thumbnail img {
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
 }
 
 .link {
@@ -74,8 +78,9 @@ text-align: center;
 }
 
 .link a {
-    color: black;
-    text-decoration: underline black;
+    color: white;
+    text-decoration: underline white;
+    font-size: 1.56rem;
 }
 
 footer  {

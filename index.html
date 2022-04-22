@@ -17,11 +17,11 @@
 
 
 
-    <title>music player</title>
+    <title>Trending Music</title>
     <link rel="icon" type="image/x-icon" href="/css/images/favicon.ico">
   </head>
   <body>
-    <h1 class="center-align"> <i class="large material-icons">music_note</i>music app.<i class="large material-icons">music_note</i></h1>
+    <h1 class="center-align"> <i class="large material-icons">music_note</i>Trending Music<i class="large material-icons">music_note</i></h1>
 
     <header>
       <!-- Navbar goes here -->
@@ -51,10 +51,16 @@
               <!--video player-->
               <div id="Video" class="Video col s12">
                   <div class="card-panel teal lighten-2">
-                    <h2 class="center-align"> Video </h2>
+                    <h2 class="center-align"> New Videos of the Week </h2>
     
                       <!--<div class="video-container">-->
                         <div id="display-playlist"></div>
+                        <button onclick="authenticate().then(loadClient)">
+                          Press First & Close Pop-up
+                        </button>
+                    
+                        <button onclick="execute()">Press Second & Display New Music</button>
+                    
                       <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe> -->
                       <!--</div>-->
                   </div>
@@ -222,21 +228,10 @@
       });
 
     </script>
-    <button onclick="authenticate().then(loadClient)">
-      Press First & Close Pop-up
-    </button>
-
-    <button onclick="execute()">Press Second & Display New Music</button>
-
-
-
-
-
-
 
     <script src="./js/script.js"></script>
     <footer>
-      <h2>A Collaboration of Andrew Picollo, Lunice Alliance, and Christopher Bannerman.</h2>
+      <h2>A Collaboration of Andrew Piccolo, Lunice Alliance, and Christopher Bannerman.</h2>
     </footer>
   </body>
 </html>
