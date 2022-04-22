@@ -17,15 +17,14 @@ h1{
 
     background-color: black;
     
-
-
 }
 .video-info {
     display: flex;
-    /* border: 1px solid black; */
+    border: 3px solid black; 
     width: 400px;
     height: 200px;
-    overflow: auto;
+    overflow: scroll;
+    margin: auto;
 }
 .nav-wrapper {
     background-color: teal;
@@ -47,5 +46,35 @@ html {
 
 nav ul li a:hover{
     text-decoration: underline black 3px;
+}
+
+.lyric-container {
+    white-space: break-spaces;
+    overflow: scroll;
+}
+
+#result h5 {
+    text-align: center;
+}
+
+.playlist-container h2 {
+font-size: 2.56rem;
+text-align: center;
+}
+
+.thumbnail {
+    display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+
+.link {
+    text-align: center;
+}
+
+.link a {
+    color: black;
+    text-decoration: underline black;
 }
 
