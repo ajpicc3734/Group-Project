@@ -50,7 +50,7 @@ nav ul li a:hover{
 
 .lyric-container {
     white-space: break-spaces;
-    overflow: scroll;
+    overflow: auto;
 }
 
 #result h5 {
