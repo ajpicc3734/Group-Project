@@ -17,15 +17,18 @@ h1{
 
     background-color: black;
     
-
-
 }
 .video-info {
     display: flex;
+<<<<<<< HEAD
     /* border: 1px solid black; */
     /* width: 400px; */
+=======
+    border: 3px solid black; 
+>>>>>>> a1920f9c98ef36716f9bbead2527ff834fad8d5f
     height: 200px;
-    overflow: auto;
+    overflow: scroll;
+    margin: auto;
 }
 .nav-wrapper {
     background-color: teal;
@@ -49,3 +52,55 @@ nav ul li a:hover{
     text-decoration: underline black 3px;
 }
 
+.lyric-container {
+    white-space: break-spaces;
+    overflow: auto;
+}
+
+#result h5 {
+    text-align: center;
+}
+
+.playlist-container h2 {
+font-size: 2.56rem;
+text-align: center;
+}
+
+.thumbnail {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   
+}
+.thumbnail img {
+    height: 50%;
+    width: 50%;
+    object-fit: contain;
+}
+
+.link {
+    text-align: center;
+}
+
+.link a {
+    color: white;
+    text-decoration: underline white;
+    font-size: 1.56rem;
+}
+
+footer  {
+    display: flex;
+    flex-direction: wrap;
+    justify-content: center;
+    background-color: teal;
+    width: 100%;
+    padding: 40px 35px;
+
+}
+
+footer h2 {
+  color:black;
+  font-size: 1.5rem;
+  margin: 0; 
+  text-align: center; 
+}

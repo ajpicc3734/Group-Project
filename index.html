@@ -17,11 +17,12 @@
 
 
 
-    <title>music player</title>
+    <title>Trending Music</title>
+    <link rel="icon" type="image/x-icon" href="/css/images/favicon.ico">
   </head>
  
   <body>
-    <h1 class="center-align"> <i class="large material-icons">music_note</i>music app.<i class="large material-icons">music_note</i></h1>
+    <h1 class="center-align"> <i class="large material-icons">music_note</i>Trending Music<i class="large material-icons">music_note</i></h1>
 
     <header>
       <!-- Navbar goes here -->
@@ -51,6 +52,10 @@
               <!--video player-->
               <div id="Video" class="Video col s12">
                   <div class="card-panel teal lighten-2">
+
+                    <h2 class="center-align"> New Videos of the Week </h2>
+    
+
                     <h2 class="center-align"> Video </h2>
                     
                     <button onclick="authenticate().then(loadClient)">
@@ -59,33 +64,46 @@
                 
                     <button onclick="execute()">Press Second & Display New Music</button>
                 
+
                       <!--<div class="video-container">-->
                         <div id="display-playlist"></div>
+                        <button onclick="authenticate().then(loadClient)">
+                          Press First & Close Pop-up
+                        </button>
+                    
+                        <button onclick="execute()">Press Second & Display New Music</button>
+                    
                       <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe> -->
                       <!--</div>-->
                   </div>
               </div>
               </div>
               <div id="search" class="col s12 m12 l5">
-                <div class="search-wrapper">
-                   <input id="search" placeholder ="lyric search"><button><i class="material-icons prefix">search</i></button>
+                <form id="form" class="search-wrapper">
+                   <input type="text" id="artist-search" placeholder ="Search Artist">
+                   <input type="text" id="song-search" placeholder ="Search Song">
+                   <button id="get-lyrics"><i class="material-icons prefix">search</i></button>
                 <div class="search-results"></div>
-                </div>
+                </form>
                   <!--lyrics-->
               <div id="Lyrics" class="Lyrics col s12">
                 <div class="card-panel teal lighten-2">
                   <h2 class="center-align">Lyrics</h2>
-                      <div class="lyric-container">
-                        <p id ="Lyric-search"></p>
+                  
+                  
+                      <div id="result" class="lyric-container">
+                        <h5></h5>
+                        <span></span>
                 </div>
-                <button id="getLyrics" type="button" onclick="getLyrics('Lizzo', 'About Damn Time')">Get Lyrics</button>
+                
             </div>
             
           </div>
+          
   
       </container>
 
-    <!-- <div id="display-playlist"></div> -->
+     <!-- <div id="display-playlist"></div> -->
 
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
@@ -198,36 +216,31 @@
                 <h2>${firstVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${firstVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${firstVideoLink}">Watch Video Here!</a></div>
-                <h3 class="desctiption">Description</h3>
                 <pre class="video-info">  ${firstVideo} </pre>
               </div>
               <div class="playlist-container" >
                 <h2>${secondVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${secondVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${secondVideoLink}">Watch Video Here!</a></div>
-                <h3 class="desctiption">Description</h3>
                 <pre class="video-info"> ${secondVideo} </pre>
               </div>
               <div class="playlist-container" >
                 <h2>${thirdVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${thirdVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${thirdVideoLink}">Watch Video Here!</a></div>
-                <h3 class="desctiption">Description</h3>
                 <pre class="video-info"> ${thirdVideo} </pre>
               </div>
               <div class="playlist-container" >
                 <h2>${forthVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${forthVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${forthVideoLink}">Watch Video Here!</a></div>
-                <h3 class="desctiption">Description</h3>
                 <pre class="video-info"> ${forthVideo} </pre>
               </div>
               <div class="playlist-container" >
                 <h2>${fifthVideoTitle}</h2>
                 <div class="thumbnail"> <img src="${fifthVideoImg}" alt="broken"></div>
-                <div class="link"> <a href="https://www.youtube.com/watch?v=${fifthVideoLink}">Watch Video Here!</a></div>
-                <h3 class="desctiption">Description</h3>
-                <pre class="video-info"> ${fifthVideo} </pre>
+                <div class="link"> <a href="https://www.youtube.com/watch?v=${fifthVideoLink}">Watch Video Here!</a></div> 
+              <pre class="video-info"> ${fifthVideo} </pre>
               </div>
               `;
               showPlaylist(output);
@@ -245,14 +258,12 @@
       });
 
     </script>
-    
-
-
-
-
 
 
     <script src="./js/script.js"></script>
+    <footer>
+      <h2>A Collaboration of Andrew Piccolo, Lunice Alliance, and Christopher Bannerman.</h2>
+    </footer>
   </body>
 </html>
 
