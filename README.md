@@ -26,6 +26,6 @@ https://ajpicc3734.github.io/Group-Project/
 ![screenshot](./css/images/Trending%20Music.png)
 
 ## Contribution
--Andrew P.
--Lunice A.
--Chris B.
+- Andrew P.
+- Lunice A.
+- Chris B.
