@@ -22,23 +22,22 @@
   </head>
  
   <body>
-    <h1 class="center-align"> <i class="large material-icons">music_note</i>Trending Music<i class="large material-icons">music_note</i></h1>
+    <h1 class="center-align"><i class="large material-icons sm-5">music_note</i> Trending Music <i class="large material-icons">music_note</i></h1>
 
     <header>
       <!-- Navbar goes here -->
       <nav class="nav-wrapper">
           <ul class="right">
+
               <li>
-                  <a href="#search">Search</a>
+                  <a href="#Video"> Video Playlist</a>
               </li>
 
               <li>
-                  <a href="#Video"> Video</a>
-              </li>
+                <a href="#search">Search Lyrics</a>
+            </li>
 
-              <li>
-                  <a href="#Lyrics">Lyrics</a>
-              </li>
+          
           </ul>
       </nav>
 
@@ -65,7 +64,7 @@
                           Press First & Close Pop-up
                         </button>
                     
-                        <button onclick="execute()">Press Second & Display New Music</button>
+                        <button onclick="execute()">Display New Music</button>
                     
                       <!-- <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe> -->
                       <!--</div>-->
@@ -96,6 +95,7 @@
           
   
       </container>
+      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> 
 
      <!-- <div id="display-playlist"></div> -->
 
@@ -207,31 +207,31 @@
               const output = 
               `
               </div>        
-                <h2>${firstVideoTitle}</h2>
+                <h3>${firstVideoTitle}</h3>
                 <div class="thumbnail"> <img src="${firstVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${firstVideoLink}">Watch Video Here!</a></div>
                 <pre class="video-info">  ${firstVideo} </pre>
               </div>
               <div class="playlist-container" >
-                <h2>${secondVideoTitle}</h2>
+                <h3>${secondVideoTitle}</h3>
                 <div class="thumbnail"> <img src="${secondVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${secondVideoLink}">Watch Video Here!</a></div>
                 <pre class="video-info"> ${secondVideo} </pre>
               </div>
               <div class="playlist-container" >
-                <h2>${thirdVideoTitle}</h2>
+                <h3>${thirdVideoTitle}</h3>
                 <div class="thumbnail"> <img src="${thirdVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${thirdVideoLink}">Watch Video Here!</a></div>
                 <pre class="video-info"> ${thirdVideo} </pre>
               </div>
               <div class="playlist-container" >
-                <h2>${forthVideoTitle}</h2>
+                <h3>${forthVideoTitle}</h3>
                 <div class="thumbnail"> <img src="${forthVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${forthVideoLink}">Watch Video Here!</a></div>
                 <pre class="video-info"> ${forthVideo} </pre>
               </div>
               <div class="playlist-container" >
-                <h2>${fifthVideoTitle}</h2>
+                <h3>${fifthVideoTitle}</h3>
                 <div class="thumbnail"> <img src="${fifthVideoImg}" alt="broken"></div>
                 <div class="link"> <a href="https://www.youtube.com/watch?v=${fifthVideoLink}">Watch Video Here!</a></div> 
               <pre class="video-info"> ${fifthVideo} </pre>
@@ -256,9 +256,7 @@
 
     <script src="./js/script.js"></script>
     <footer>
-      <h2>A Collaboration of Andrew Piccolo, Lunice Alliance, and Christopher Bannerman.</h2>
+      <h4>A Collaboration of Andrew Piccolo, Lunice Alliance, and Christopher Bannerman.</h4>
     </footer>
   </body>
 </html>
-
-
